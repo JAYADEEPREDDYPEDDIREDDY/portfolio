@@ -1,9 +1,16 @@
 .hero-container {
-    background: linear-gradient(135deg, #1b034e, #02172d, #120338);
-    text-align: center;
-    padding: 50px;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: -100px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #0F0715, #150B21, #25143E);
+  margin-top: -100px;
+}
+
+/* Apply padding only for larger screens */
+@media (min-width: 768px) {
+  .hero-container {
+      padding: 50px;
+      padding-left: 100px;
+      padding-right: 100px;
   }
-  
+}

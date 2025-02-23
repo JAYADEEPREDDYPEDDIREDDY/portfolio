@@ -1,29 +1,108 @@
-
 import { useState } from "react";
-
+import { motion, AnimatePresence } from "framer-motion";
 import "./Services.css";
+import project1 from "../assets/project1.png";
+import { FiArrowUpRight } from "react-icons/fi";
+
 const categories = ["All", "Apps", "Branding", "Content", "UX/UI"];
 
+const servicesData = [
+  {
+    image: project1,
+    title: "Project 1",
+    description: "This is a description for project 1.",
+    category: "Apps",
+  },
+  {
+    image: project1,
+    title: "Project 2",
+    description: "This is a description for project 2.",
+    category: "Branding",
+  },
+  {
+    image: project1,
+    title: "Project 3",
+    description: "This is a description for project 3.",
+    category: "UX/UI",
+  },
+];
 
 export default function Services() {
-  // const [hovered, setHovered] = useState(null);
   const [active, setActive] = useState("All");
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const filteredServices =
+    active === "All" ? servicesData : servicesData.filter((s) => s.category === active);
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-6 Services-container">
-      <h2 className="text-6xl font-bold text-purple-400">My Recent Works</h2>
-      <div className="flex items-center space-x-4 bg-black p-2 rounded-full w-fit">
-      {categories.map((category) => (
-        <button
-          key={category}
-          onClick={() => setActive(category)}
-          className={`relative px-4 py-2 rounded-full transition-all text-white 
-            ${active === category ? "bg-gradient-to-r from-purple-500 to-purple-700" : ""}
-          `}
-        >
-          {category}
-        </button>
-      ))}
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-6 py-10 Services-container">
+      <h2 className="text-4xl md:text-6xl font-bold text-purple-400 mb-6 text-center">
+        My Recent Works
+      </h2>
+
+      {/* Category Tabs with Animation */}
+      <nav className="flex flex-wrap justify-center items-center gap-3 md:gap-4 bg-black p-2 rounded-full w-fit">
+        {categories.map((category) => (
+          <motion.button
+            key={category}
+            onClick={() => setActive(category)}
+            className={`relative px-4 py-2 text-sm md:text-base rounded-full transition-all text-white 
+              ${active === category ? "bg-gradient-to-r from-purple-500 to-purple-700" : "bg-gray-800"}
+            `}
+          >
+            {category}
+            {active === category && (
+              <motion.div
+                
+                className="absolute bottom-0 left-0 right-0 h-[2px]  rounded-full"
+              />
+            )}
+          </motion.button>
+        ))}
+      </nav>
+
+      {/* Services Grid with Animation */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <AnimatePresence mode="wait">
+          {filteredServices.map((service, index) => (
+            <motion.div
+              key={service.title}
+              className="relative bg-black text-white p-4 w-auto h-auto rounded-lg group"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="relative overflow-hidden rounded-lg">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-[300px] rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Pop-up Box */}
+              {hoveredIndex === index && (
+                <motion.div
+                  className="absolute bottom-4 left-4 right-4 bg-purple-600 p-4 rounded-xl text-white shadow-lg"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="flex justify-between items-center">
+                    <h3 className="font-bold text-lg">{service.title}</h3>
+                    <FiArrowUpRight className="text-xl" />
+                  </div>
+                  <p className="text-sm opacity-90">{service.description}</p>
+                </motion.div>
+              )}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
     </div>
-         </div>
   );
 }

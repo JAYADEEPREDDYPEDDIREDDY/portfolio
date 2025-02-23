@@ -2,7 +2,7 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const ContactInfo = () => {
   return (
-    <div className="bg-black text-white p-6 rounded-lg space-y-6 max-w-md">
+    <div className="bg-black text-white p-6 rounded-lg space-y-6 w-full">
       {/* Phone */}
       <div className="flex items-start space-x-4">
         <div className="bg-gradient-to-r from-purple-500 to-purple-700 p-3 rounded-full">
