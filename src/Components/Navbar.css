@@ -1,0 +1,40 @@
+.container-eg-btn-4 .button-3 {
+    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+    background-size: 200% auto;
+}
+.container-eg-btn-4 .button-3:hover {
+    background-position: right center;
+    box-shadow: 0 4px 15px 0 #12d8fa;
+}
+.container-eg-btn-4 {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto 10px;
+    padding: .5em;
+    line-height: normal;
+}
+.container-eg-btn-4 .button {
+    background: #af40ff;
+    margin-top: -10px;
+    padding: 10px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    transition: .3s;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 12px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 700;
+    font-size: 20px;
+}
+.exp{
+    margin-top: -100px;
+
+}
