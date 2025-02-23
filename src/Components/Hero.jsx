@@ -1,6 +1,6 @@
 import React from "react";
 import "./Hero.css";
-import { motion } from "framer-motion";
+
 import { FaFacebookF, FaLinkedinIn, FaDribbble, FaGithub } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
 import animationData from "../assets/hero.json";
