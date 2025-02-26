@@ -22,10 +22,15 @@ const AnimatedSkillsList = () => {
       <motion.ul 
         className="flex flex-wrap justify-center gap-6 max-w-4xl"
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }} 
         variants={{
           hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+          visible: { 
+            opacity: 1, 
+            y: 0, 
+            transition: { staggerChildren: 0.2, delay: 0.3 } 
+          },
         }}
       >
         {skills.map((skill, index) => (

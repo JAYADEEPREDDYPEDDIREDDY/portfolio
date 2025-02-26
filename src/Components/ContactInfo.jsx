@@ -10,7 +10,7 @@ const ContactInfo = () => {
         </div>
         <div>
           <p className="text-gray-400">Phone</p>
-          <p className="font-semibold text-lg">+01 123 654 8096</p>
+          <p className="font-semibold text-lg">+91 9390787290</p>
         </div>
       </div>
 
@@ -21,7 +21,7 @@ const ContactInfo = () => {
         </div>
         <div>
           <p className="text-gray-400">Email</p>
-          <p className="font-semibold text-lg">gerolddesign@mail.com</p>
+          <p className="font-semibold text-lg">jayadeepreddypeddireddy@gmail.com</p>
         </div>
       </div>
 
@@ -33,8 +33,8 @@ const ContactInfo = () => {
         <div>
           <p className="text-gray-400">Address</p>
           <p className="font-semibold text-lg">
-            Warne Park Street Pine,<br />
-            FL 33157, New York
+           Tirupathi<br />
+           Andhra Pradesh, 517502
           </p>
         </div>
       </div>

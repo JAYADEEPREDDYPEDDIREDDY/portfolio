@@ -1,29 +1,32 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "./Services.css";
+import "./Projects.css";
 import project1 from "../assets/project1.png";
+import DCME from '../assets/DCME.png'
 import { FiArrowUpRight } from "react-icons/fi";
+import Restaurant from '../assets/image.png'
 
-const categories = ["All", "Apps", "Branding", "Content", "UX/UI"];
+const categories = ["All", "Websites","Apps"];
 
 const servicesData = [
+ 
   {
-    image: project1,
-    title: "Project 1",
-    description: "This is a description for project 1.",
-    category: "Apps",
+    image: Restaurant,
+    title: "Restaurant",
+    description: "A full-stack restaurant website built with React and Node.js, offering seamless online ordering and management.",
+    category: "Websites",
   },
   {
-    image: project1,
-    title: "Project 2",
-    description: "This is a description for project 2.",
-    category: "Branding",
+    image: DCME,
+    title: "Student Data base management App",
+    description: "A seamless Flutter-based student database management app for efficient student record tracking and administration.",
+    category: "Apps",
   },
   {
     image: project1,
     title: "Project 3",
     description: "This is a description for project 3.",
-    category: "UX/UI",
+    category: "Websites",
   },
 ];
 
@@ -76,12 +79,13 @@ export default function Services() {
               transition={{ duration: 0.3 }}
             >
               <div className="relative overflow-hidden rounded-lg">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-[300px] rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
+  <img
+    src={service.image}
+    alt={service.title}
+    className="w-[900px] h-[350px] rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
+  />
+</div>
+
 
               {/* Pop-up Box */}
               {hoveredIndex === index && (

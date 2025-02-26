@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import ContactInfo from './ContactInfo';
 
 export default function ContactForm() {
@@ -23,8 +24,21 @@ export default function ContactForm() {
 
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center min-h-screen bg-black px-6 py-10 gap-10">
-      {/* Contact Form */}
-      <div className="bg-[#1a0826] p-6 md:p-8 rounded-lg w-full max-w-2xl text-white">
+    
+      <motion.div 
+        initial={{ opacity: 0, x: -50 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        variants={{
+          hidden: { opacity: 0, y: 50 },
+          visible: { 
+            opacity: 1, 
+            y: 0, 
+            transition: { staggerChildren: 0.2, delay: 0.3 } 
+          },
+        }}
+        className="bg-[#1a0826] p-6 md:p-8 rounded-lg w-full max-w-2xl text-white"
+      >
         <h2 className="text-3xl md:text-4xl font-bold text-purple-400 text-center md:text-left">
           Let’s <span className="text-white">work together!</span>
         </h2>
@@ -47,16 +61,24 @@ export default function ContactForm() {
             <option value="seo">SEO</option>
           </select>
           <textarea name="message" placeholder="Message" onChange={handleChange} className="w-full p-3 mt-4 bg-black border border-gray-700 rounded h-24" required></textarea>
-          <button type="submit" className="w-full mt-4 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded">
+          <motion.button 
+            whileHover={{ scale: 1.05 }} 
+            whileTap={{ scale: 0.95 }} 
+            type="submit" 
+            className="w-full mt-4 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded"
+          >
             Send Message
-          </button>
+          </motion.button>
         </form>
-      </div>
-
-      {/* Contact Info */}
-      <div className="w-full max-w-md">
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, x: 50 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="w-full max-w-md"
+      >
         <ContactInfo />
-      </div>
+      </motion.div>
     </div>
   );
 }

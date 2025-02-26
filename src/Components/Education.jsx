@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import animationData from "../assets/education.json";
 import Lottie from "react-lottie";
+
 const educationData = [
   {
     year: "2023 - Present",
@@ -19,14 +20,16 @@ const educationData = [
     institution: "Santiniketan High School",
   },
 ];
+
 const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  };
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+  }
+};
+
 const EducationPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#0b0f19] text-white p-6">
@@ -34,22 +37,21 @@ const EducationPage = () => {
         Education Timeline
       </h2>
 
-      {/* Container for Image & Timeline */}
+      {/* Container for Lottie Animation & Timeline */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full max-w-4xl">
-        {/* Left Side - Image */}
+        
+        {/* Left Side - Lottie Animation */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.3 } },
+          }}
           className="w-full md:w-1/2 flex justify-center"
         >
-          
-  {/* Lottie Animation */}
-  <Lottie options={defaultOptions} className=" hidden md:block w-[400px] h-[400px] md:w-[400px] md:h-[400px]" />
-  
-  {/* Image (Visible only on Desktop) */}
- 
-
+          <Lottie options={defaultOptions} className="hidden md:block w-[400px] h-[400px]" />
         </motion.div>
 
         {/* Right Side - Timeline */}
@@ -58,9 +60,13 @@ const EducationPage = () => {
             <motion.div
               key={index}
               className="bg-[#1a1f2b] border-l-4 border-teal-400 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0, transition: { delay: index * 0.2, duration: 0.5 } },
+              }}
             >
               <span className="text-teal-400 font-bold">{edu.year}</span>
               <h3 className="text-lg font-semibold mt-1">{edu.degree}</h3>
