@@ -17,7 +17,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero-container px-6 md:px-12 lg:px-16">
+    <div className="hero-container px-6 md:px-12 lg:px-16 mt-12">
       <div className="relative flex flex-col  md:flex-row-reverse items-center justify-between h-auto md:h-screen bg-gradient-to-r overflow-hidden py-10 md:py-0">
         
         {/* Text Above Animation on Mobile */}

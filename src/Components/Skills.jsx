@@ -1,62 +1,49 @@
 import React from "react";
-import "./Skills.css";
-import jsIcon from "../assets/logo.png";
-// Import skill icons (use actual icons or URLs)
-// import jsIcon from "../assets/js.png";
-// import tsIcon from "../assets/ts.png";
-// import reactIcon from "../assets/react.png";
-// import nextIcon from "../assets/next.png";
-// import nodeIcon from "../assets/node.png";
-// import expressIcon from "../assets/express.png";
-// import nestIcon from "../assets/nest.png";
-// import socketIcon from "../assets/socket.png";
-// import postgresIcon from "../assets/postgres.png";
-// import mongoIcon from "../assets/mongo.png";
-// import sassIcon from "../assets/sass.png";
-// import tailwindIcon from "../assets/tailwind.png";
-// import figmaIcon from "../assets/figma.png";
-// import cypressIcon from "../assets/cypress.png";
-// import storybookIcon from "../assets/storybook.png";
-// import gitIcon from "../assets/git.png";
+import { motion } from "framer-motion";
 
-// Skill Data
 const skills = [
-  { name: "Javascript", icon: jsIcon },
-  { name: "Typescript", icon: jsIcon },
-  { name: "React", icon: jsIcon },
-  { name: "Next.js", icon: jsIcon },
-  { name: "Node.js", icon: jsIcon },
-  { name: "Express.js", icon: jsIcon },
-  { name: "Nest.js", icon: jsIcon },
-  { name: "Socket.io", icon: jsIcon },
-  { name: "PostgreSQL", icon: jsIcon },
-  { name: "MongoDB", icon: jsIcon },
-  { name: "Sass/Scss", icon: jsIcon },
-  { name: "TailwindCSS", icon: jsIcon },
-
+  { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "MongoDB", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Express", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "TypeScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "HTML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
 ];
 
-export default function Skills() {
+const AnimatedSkillsList = () => {
   return (
-    <div className="skills-section bg-[#0a0a0a] text-white py-20 text-center">
-      <h2 className="text-gray-400 text-sm font-semibold tracking-wider uppercase">Skills</h2>
-      <p className="text-lg text-gray-300 mt-2">
-        The skills, tools, and technologies I am really good at:
-      </p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#0b0f19] text-white px-4">
+      <h2 className="text-3xl md:text-5xl font-bold text-purple-400 mb-10 text-center">
+        Skills
+      </h2>
 
-      {/* Skills Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-center mt-10">
+      <motion.ul 
+        className="flex flex-wrap justify-center gap-6 max-w-4xl"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0, y: 50 },
+          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+        }}
+      >
         {skills.map((skill, index) => (
-          <div key={index} className="flex flex-col items-center">
-            <img
-              src={skill.icon}
-              alt={skill.name}
-              className="w-16 h-16 transition-transform duration-300 hover:scale-110"
-            />
-            <p className="text-gray-300 mt-2 text-sm">{skill.name}</p>
-          </div>
+          <motion.li 
+            key={index}
+            className="flex flex-col items-center justify-center bg-[#6c3fc6] w-24 h-24 md:w-28 md:h-28 rounded-lg shadow-lg transition-transform hover:scale-110 hover:bg-purple-500"
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <img src={skill.img} alt={skill.name} className="w-10 h-10 md:w-14 md:h-14 object-contain mb-2" />
+            <span className="text-xs md:text-sm uppercase font-semibold">{skill.name}</span>
+          </motion.li>
         ))}
-      </div>
+      </motion.ul>
     </div>
   );
-}
+};
+
+export default AnimatedSkillsList;

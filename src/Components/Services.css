@@ -7,3 +7,11 @@
 .popup{
   background: linear-gradient(#814CED,#5A33A9,#351B66) ;
 }
+@media (min-width: 768px) {
+  .Services-container {
+      padding: 50px;
+      padding-left: 100px;
+      padding-right: 100px;
+      
+  }
+}

@@ -4,7 +4,9 @@ import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
 import Services from './Components/Services'
 import ContactForm from './Components/Contact';
-import Skills from './Components/Skills';
+import AnimatedList from './Components/Skills';
+import EducationPage from './Components/Education';
+
 
 
 
@@ -14,8 +16,11 @@ function App() {
     <Navbar/>
     <Hero/>
     <Services/>
+    <AnimatedList/>
+    <EducationPage/>
     <ContactForm/>
-   <Skills/>
+   
+   
     <Footer/>
       </>
   );

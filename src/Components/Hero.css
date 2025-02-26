@@ -3,7 +3,7 @@
   font-size: 24px;
   font-weight: bold;
   background: linear-gradient(135deg, #0F0715, #150B21, #25143E);
-  margin-top: -100px;
+  margin-top: -20px;
 }
 
 /* Apply padding only for larger screens */
@@ -12,5 +12,6 @@
       padding: 50px;
       padding-left: 100px;
       padding-right: 100px;
+      
   }
 }

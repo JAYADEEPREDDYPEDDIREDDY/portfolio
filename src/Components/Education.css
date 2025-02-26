@@ -1,0 +1,53 @@
+body {
+    background: #0b0f19;
+    color: white;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .education-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px;
+  }
+  
+  .education-image img {
+    width: 400px;
+  }
+  
+  .education-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .education-card {
+    background: linear-gradient(135deg, #1a1f2b, #282f42);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    max-width: 500px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .education-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .year {
+    color: #00ffa6;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  h3 {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  p {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
