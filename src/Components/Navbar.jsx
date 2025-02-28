@@ -41,6 +41,11 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="hover:text-gray-500 cursor-pointer">
+              <Link to="about" smooth={true} duration={500}>
+                About me
+              </Link>
+            </li>
+            <li className="hover:text-gray-500 cursor-pointer">
               <Link to="projects" smooth={true} duration={500}>
                 Projects
               </Link>

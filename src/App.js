@@ -6,6 +6,7 @@ import Projects from './Components/Projects'
 import ContactForm from './Components/Contact';
 import AnimatedList from './Components/Skills';
 import EducationPage from './Components/Education';
+import AboutMe from './Components/aboutme';
 
 
 
@@ -16,6 +17,9 @@ function App() {
       <Navbar />
       <div id="home">
         <Hero />
+      </div>
+      <div id="about">
+        <AboutMe/>
       </div>
       <div id="projects">
         <Projects />
