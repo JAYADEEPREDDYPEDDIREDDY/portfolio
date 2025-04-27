@@ -18,8 +18,8 @@ const Hero = () => {
  
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = process.env.PUBLIC_URL + "/resume/JAYADEEP RESUME.pdf"; // Ensures correct path
-    link.download = "JAYADEEP RESUME.pdf"; // File name
+    link.href = process.env.PUBLIC_URL + "/resume/lab.zip"; // Ensures correct path
+    link.download = "lab.zip"; // File name
     link.target = "_blank"; // Opens in new tab if needed
     document.body.appendChild(link);
     link.click();
